@@ -33,3 +33,11 @@ if duplicates:
         print(f"Duplicate name found: {dup}")
 else:
     print("No duplicate names.")
+track_summary = {}
+for p in participants:
+    track = p['track']
+    track_summary[track] = track_summary.get(track, 0) + 1
+
+print("\nParticipants per track:")
+for track, count in track_summary.items():
+    print(f"{track}: {count}")
