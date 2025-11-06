@@ -20,3 +20,16 @@ unique_tracks = set(p['track'] for p in participants)
 print(f"\nTracks offered in this event: {', '.join(unique_tracks)}")
 if len(unique_tracks) < 2:
     print("Not enough variety in tracks.")
+seen_names = set()
+duplicates = set()
+for p in participants:
+    if p['name'] in seen_names:
+        duplicates.add(p['name'])
+    else:
+        seen_names.add(p['name'])
+
+if duplicates:
+    for dup in duplicates:
+        print(f"Duplicate name found: {dup}")
+else:
+    print("No duplicate names.")
